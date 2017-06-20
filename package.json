@@ -1,0 +1,27 @@
+{
+  "name": "babel-plugin-annotate-ng",
+  "version": "0.1.0",
+  "description": "babel plugin annotate angular v1.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/bornkiller/babel-plugin-annotate-ng.git"
+  },
+  "keywords": [
+    "babel",
+    "plugin"
+  ],
+  "author": "bornkiller <hjj491229492@hotmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/bornkiller/babel-plugin-annotate-ng/issues"
+  },
+  "homepage": "https://gitlab.com/bornkiller/babel-plugin-annotate-ng#README",
+  "devDependencies": {
+    "eslint": "^4.0.0",
+    "jest": "^20.0.4"
+  }
+}
