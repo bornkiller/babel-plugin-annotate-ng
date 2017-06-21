@@ -43,3 +43,45 @@ export function ShowcaseController($q, $sce, $animate) {
   function ngOnDestroy() {}
 }"
 `;
+
+exports[`babel-plugin-annotate-ng Inline Function Declare ExportDefaultDeclaration 1`] = `
+"ButterflyInlineController.$inject = [\\"$q\\", \\"$sce\\", \\"$animate\\"];
+export default function ButterflyInlineController($q, $sce, $animate) {
+  this.$q = $q;
+  this.$sce = $sce;
+  this.$animate = $animate;
+
+  // lifecycle method
+  this.ngOnInit = ngOnInit;
+  this.ngAfterViewInit = ngAfterViewInit;
+  this.ngOnDestroy = ngOnDestroy;
+
+  // function declare
+  function ngOnInit() {}
+
+  function ngAfterViewInit() {}
+
+  function ngOnDestroy() {}
+}"
+`;
+
+exports[`babel-plugin-annotate-ng Inline Function Declare ExportNamedDeclare 1`] = `
+"ShowcaseInlineController.$inject = [\\"$q\\", \\"$sce\\", \\"$animate\\"];
+export function ShowcaseInlineController($q, $sce, $animate) {
+  this.$q = $q;
+  this.$sce = $sce;
+  this.$animate = $animate;
+
+  // lifecycle method
+  this.ngOnInit = ngOnInit;
+  this.ngAfterViewInit = ngAfterViewInit;
+  this.ngOnDestroy = ngOnDestroy;
+
+  // function declare
+  function ngOnInit() {}
+
+  function ngAfterViewInit() {}
+
+  function ngOnDestroy() {}
+}"
+`;

@@ -1,6 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`babel-plugin-annotate-ng Tunnel ExportNamedDeclare 1`] = `
+exports[`babel-plugin-annotate-ng Tunnel Class Declaration 1`] = `
+"export class HelloWorld {
+  constructor() {}
+
+  ngOnInit() {}
+
+  render() {}
+}"
+`;
+
+exports[`babel-plugin-annotate-ng Tunnel Function Declaration 1`] = `
 "export function find(fruit) {
   const inventory = [{ name: 'apples', quantity: 2 }, { name: 'bananas', quantity: 0 }, { name: 'cherries', quantity: 5 }];
 

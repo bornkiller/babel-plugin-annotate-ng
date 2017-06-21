@@ -28,3 +28,19 @@ describe('babel-plugin-annotate-ng Function Declare', function () {
     expect(code).toMatchSnapshot();
   });
 });
+
+describe('babel-plugin-annotate-ng Inline Function Declare', function () {
+  it('ExportNamedDeclare', function () {
+    const fixture = path.resolve(__dirname, '../__fixture__/Function/showcase-inline.controller.js');
+    const { code } = babel.transformFileSync(fixture, babelOptions);
+
+    expect(code).toMatchSnapshot();
+  });
+
+  it('ExportDefaultDeclaration', function () {
+    const fixture = path.resolve(__dirname, '../__fixture__/Function/butterfly-inline.controller.js');
+    const { code } = babel.transformFileSync(fixture, babelOptions);
+
+    expect(code).toMatchSnapshot();
+  });
+});
