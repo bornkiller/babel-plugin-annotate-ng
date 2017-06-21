@@ -5,16 +5,7 @@
 'use strict';
 
 const annotate = require('./annotate');
-
-const NestVisitor = {
-  ClassDeclaration: {
-    enter(path) {
-      if (annotate.inspectAnnotationComment(path)) {
-        annotate.injectInlineClassDeclare(path, this.types);
-      }
-    }
-  }
-};
+const NestVisitor = require('./nest-visitor');
 
 module.exports = function ({ types }) {
   return {
@@ -25,6 +16,8 @@ module.exports = function ({ types }) {
           if (types.isFunctionDeclaration(path.node.declaration)) {
             if (annotate.inspectAnnotationComment(path, types)) {
               annotate.injectFunctionDeclare(path, types);
+            } else {
+              path.traverse(NestVisitor, { types: types });
             }
 
             return;

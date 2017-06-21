@@ -7,6 +7,7 @@
 module.exports = {
   inspectAnnotationComment,
   injectFunctionDeclare,
+  injectInlineFunctionDeclare,
   injectClassDeclare,
   injectInlineClassDeclare
 };
@@ -15,11 +16,10 @@ module.exports = {
  * @description - determine whether function declare has @ngInject commend
  *
  * @param {Object} path
- * @param types
  *
  * @return {*}
  */
-function inspectAnnotationComment(path, types) {
+function inspectAnnotationComment(path) {
   // skip none-comment function declare
   if (!path.node.leadingComments) return null;
 
@@ -33,6 +33,18 @@ function injectFunctionDeclare(path, types) {
 
   path.node.leadingComments = null;
   path.insertBefore(types.expressionStatement(types.assignmentExpression(
+    '=',
+    types.MemberExpression(id, types.identifier('$inject')),
+    types.arrayExpression(params.map((identifier) => types.stringLiteral(identifier.name)))
+  )));
+}
+
+function injectInlineFunctionDeclare(path, types) {
+  const { id, params } = path.node;
+  const parent = path.findParent((path) => (types.isExportNamedDeclaration(path.node) || types.isExportDefaultDeclaration(path.node)));
+
+  path.node.leadingComments = null;
+  parent.insertBefore(types.expressionStatement(types.assignmentExpression(
     '=',
     types.MemberExpression(id, types.identifier('$inject')),
     types.arrayExpression(params.map((identifier) => types.stringLiteral(identifier.name)))
