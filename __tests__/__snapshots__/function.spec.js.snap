@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`babel-plugin-annotate-ng Function Declare ExportDefaultDeclaration 1`] = `
+"ButterflyController.$inject = [\\"$q\\", \\"$sce\\", \\"$animate\\"];
+
+export default function ButterflyController($q, $sce, $animate) {
+  this.$q = $q;
+  this.$sce = $sce;
+  this.$animate = $animate;
+
+  // lifecycle method
+  this.ngOnInit = ngOnInit;
+  this.ngAfterViewInit = ngAfterViewInit;
+  this.ngOnDestroy = ngOnDestroy;
+
+  // function declare
+  function ngOnInit() {}
+
+  function ngAfterViewInit() {}
+
+  function ngOnDestroy() {}
+}"
+`;
+
+exports[`babel-plugin-annotate-ng Function Declare ExportNamedDeclare 1`] = `
+"ShowcaseController.$inject = [\\"$q\\", \\"$sce\\", \\"$animate\\"];
+
+export function ShowcaseController($q, $sce, $animate) {
+  this.$q = $q;
+  this.$sce = $sce;
+  this.$animate = $animate;
+
+  // lifecycle method
+  this.ngOnInit = ngOnInit;
+  this.ngAfterViewInit = ngAfterViewInit;
+  this.ngOnDestroy = ngOnDestroy;
+
+  // function declare
+  function ngOnInit() {}
+
+  function ngAfterViewInit() {}
+
+  function ngOnDestroy() {}
+}"
+`;

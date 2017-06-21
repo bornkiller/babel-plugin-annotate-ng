@@ -1,5 +1,5 @@
 /* @ngInject */
-function ShowcaseController($q, $sce, $animate) {
+export default function ButterflyController($q, $sce, $animate) {
   this.$q = $q;
   this.$sce = $sce;
   this.$animate = $animate;

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`babel-plugin-annotate-ng Class Declare ExportDefaultDeclaration 1`] = `
+"MonitorController.$inject = [\\"$q\\", \\"$sce\\", \\"$animate\\"];
+
+export default class MonitorController {
+  constructor($q, $sce, $animate) {
+    this.$q = $q;
+    this.$sce = $sce;
+    this.$animate = $animate;
+  }
+
+  ngOnInit() {}
+
+  ngAfterViewInit() {}
+
+  ngOnDestroy() {}
+}"
+`;
+
+exports[`babel-plugin-annotate-ng Class Declare ExportNamedDeclare 1`] = `
+"ReduxCoreController.$inject = [\\"$q\\", \\"$sce\\", \\"$animate\\"];
+
+export class ReduxCoreController {
+  constructor($q, $sce, $animate) {
+    this.$q = $q;
+    this.$sce = $sce;
+    this.$animate = $animate;
+  }
+
+  ngOnInit() {}
+
+  ngAfterViewInit() {}
+
+  ngOnDestroy() {}
+}"
+`;
