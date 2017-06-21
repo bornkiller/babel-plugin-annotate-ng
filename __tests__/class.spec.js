@@ -28,3 +28,19 @@ describe('babel-plugin-annotate-ng Class Declare', function () {
     expect(code).toMatchSnapshot();
   });
 });
+
+describe.only('babel-plugin-annotate-ng Inline Class Declare', function () {
+  it('Inline ExportNamedDeclare', function () {
+    const fixture = path.resolve(__dirname, '../__fixture__/Class/redux-inline.controller.js');
+    const { code } = babel.transformFileSync(fixture, babelOptions);
+
+    expect(code).toMatchSnapshot();
+  });
+
+  it('Inline ExportDefaultDeclare', function () {
+    const fixture = path.resolve(__dirname, '../__fixture__/Class/monitor-inline.controller.js');
+    const { code } = babel.transformFileSync(fixture, babelOptions);
+
+    expect(code).toMatchSnapshot();
+  });
+});
