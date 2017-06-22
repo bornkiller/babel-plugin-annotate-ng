@@ -20,7 +20,7 @@ module.exports = {
  * @return {*}
  */
 function inspectExportAnnotationComment(path) {
-  return path.node.leadingComments;
+  return path.node.leadingComments || [];
 }
 
 /**
@@ -31,7 +31,7 @@ function inspectExportAnnotationComment(path) {
  * @return {*}
  */
 function inspectFunctionAnnotationComment(path) {
-  return path.node.leadingComments;
+  return path.node.leadingComments || [];
 }
 
 /**
@@ -56,7 +56,7 @@ function inspectClassAnnotationComment(path) {
  *
  * @return {boolean}
  */
-function determineAnnotationComment(comments = []) {
+function determineAnnotationComment(comments) {
   return comments.map((comment) => comment.value.trim())
     .some((comment) => comment === '@ngInject');
 }
