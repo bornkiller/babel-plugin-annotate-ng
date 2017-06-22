@@ -4,30 +4,33 @@
  */
 'use strict';
 
-const annotate = require('./annotate');
-const NestVisitor = require('./nest-visitor');
+const injector = require('./injector');
+const DeclarationVisitor = require('./visitor');
+const radar = require('./radar');
 
 module.exports = function ({ types }) {
   return {
     visitor: {
       'ExportNamedDeclaration|ExportDefaultDeclaration': {
         enter(path) {
-          // skip when not annotation comment
+          const comments = radar.inspectExportAnnotationComment(path);
+
+          // skip when not export Function or Class
           if (types.isFunctionDeclaration(path.node.declaration)) {
-            if (annotate.inspectAnnotationComment(path, types)) {
-              annotate.injectFunctionDeclare(path, types);
+            if (radar.determineAnnotationComment(comments)) {
+              injector.injectFunctionDeclare(path, types);
             } else {
-              path.traverse(NestVisitor, { types: types });
+              path.traverse(DeclarationVisitor, { types: types });
             }
 
             return;
           }
 
           if (types.isClassDeclaration(path.node.declaration)) {
-            if (annotate.inspectAnnotationComment(path, types)) {
-              annotate.injectClassDeclare(path, types);
+            if (radar.determineAnnotationComment(comments)) {
+              injector.injectClassDeclare(path, types);
             } else {
-              path.traverse(NestVisitor, { types: types });
+              path.traverse(DeclarationVisitor, { types: types });
             }
           }
         }

@@ -36,7 +36,43 @@ export class ReduxCoreController {
 }"
 `;
 
-exports[`babel-plugin-annotate-ng Inline Class Declare Inline ExportDefaultDeclare 1`] = `
+exports[`babel-plugin-annotate-ng Cross Class Declare ExportDefaultDeclare 1`] = `
+"MonitorCrossController.$inject = [\\"$q\\", \\"$sce\\", \\"$animate\\"];
+export default class MonitorCrossController {
+  /* @ngInject */
+  constructor($q, $sce, $animate) {
+    this.$q = $q;
+    this.$sce = $sce;
+    this.$animate = $animate;
+  }
+
+  ngOnInit() {}
+
+  ngAfterViewInit() {}
+
+  ngOnDestroy() {}
+}"
+`;
+
+exports[`babel-plugin-annotate-ng Cross Class Declare ExportNamedDeclare 1`] = `
+"ReduxCrossController.$inject = [\\"$q\\", \\"$sce\\", \\"$animate\\"];
+export class ReduxCrossController {
+  /* @ngInject */
+  constructor($q, $sce, $animate) {
+    this.$q = $q;
+    this.$sce = $sce;
+    this.$animate = $animate;
+  }
+
+  ngOnInit() {}
+
+  ngAfterViewInit() {}
+
+  ngOnDestroy() {}
+}"
+`;
+
+exports[`babel-plugin-annotate-ng Inline Class Declare ExportDefaultDeclare 1`] = `
 "MonitorInlineController.$inject = [\\"$q\\", \\"$sce\\", \\"$animate\\"];
 export default class MonitorInlineController {
   constructor($q, $sce, $animate) {
@@ -53,7 +89,7 @@ export default class MonitorInlineController {
 }"
 `;
 
-exports[`babel-plugin-annotate-ng Inline Class Declare Inline ExportNamedDeclare 1`] = `
+exports[`babel-plugin-annotate-ng Inline Class Declare ExportNamedDeclare 1`] = `
 "ReduxCoreController.$inject = [\\"$q\\", \\"$sce\\", \\"$animate\\"];
 export class ReduxCoreController {
   constructor($q, $sce, $animate) {

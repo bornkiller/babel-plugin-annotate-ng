@@ -5,28 +5,11 @@
 'use strict';
 
 module.exports = {
-  inspectAnnotationComment,
   injectFunctionDeclare,
   injectInlineFunctionDeclare,
   injectClassDeclare,
   injectInlineClassDeclare
 };
-
-/**
- * @description - determine whether function declare has @ngInject commend
- *
- * @param {Object} path
- *
- * @return {*}
- */
-function inspectAnnotationComment(path) {
-  // skip none-comment function declare
-  if (!path.node.leadingComments) return null;
-
-  return path.node.leadingComments
-    .map((comment) => comment.value.trim())
-    .find((comment) => comment === '@ngInject');
-}
 
 function injectFunctionDeclare(path, types) {
   const { id, params } = path.node.declaration;

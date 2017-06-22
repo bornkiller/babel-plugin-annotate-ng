@@ -30,15 +30,31 @@ describe('babel-plugin-annotate-ng Class Declare', function () {
 });
 
 describe('babel-plugin-annotate-ng Inline Class Declare', function () {
-  it('Inline ExportNamedDeclare', function () {
+  it('ExportNamedDeclare', function () {
     const fixture = path.resolve(__dirname, '../__fixture__/Class/redux-inline.controller.js');
     const { code } = babel.transformFileSync(fixture, babelOptions);
 
     expect(code).toMatchSnapshot();
   });
 
-  it('Inline ExportDefaultDeclare', function () {
+  it('ExportDefaultDeclare', function () {
     const fixture = path.resolve(__dirname, '../__fixture__/Class/monitor-inline.controller.js');
+    const { code } = babel.transformFileSync(fixture, babelOptions);
+
+    expect(code).toMatchSnapshot();
+  });
+});
+
+describe('babel-plugin-annotate-ng Cross Class Declare', function () {
+  it('ExportNamedDeclare', function () {
+    const fixture = path.resolve(__dirname, '../__fixture__/Class/redux-cross.controller.js');
+    const { code } = babel.transformFileSync(fixture, babelOptions);
+
+    expect(code).toMatchSnapshot();
+  });
+
+  it('ExportDefaultDeclare', function () {
+    const fixture = path.resolve(__dirname, '../__fixture__/Class/monitor-cross.controller.js');
     const { code } = babel.transformFileSync(fixture, babelOptions);
 
     expect(code).toMatchSnapshot();
