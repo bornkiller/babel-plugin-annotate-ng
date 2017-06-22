@@ -18,7 +18,7 @@ module.exports = function ({ types }) {
           // skip when not export Function or Class
           if (types.isFunctionDeclaration(path.node.declaration)) {
             if (radar.determineAnnotationComment(comments)) {
-              injector.injectFunctionDeclare(path, types);
+              injector.injectFunctionDeclare(path.get('declaration'), types);
             } else {
               path.traverse(DeclarationVisitor, { types: types });
             }
@@ -28,7 +28,7 @@ module.exports = function ({ types }) {
 
           if (types.isClassDeclaration(path.node.declaration)) {
             if (radar.determineAnnotationComment(comments)) {
-              injector.injectClassDeclare(path, types);
+              injector.injectClassDeclare(path.get('declaration'), types);
             } else {
               path.traverse(DeclarationVisitor, { types: types });
             }
