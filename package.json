@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/bornkiller/babel-plugin-annotate-ng.git"
+    "url": "git+ssh://git@github.com/bornkiller/babel-plugin-annotate-ng.git"
   },
   "keywords": [
     "babel",
@@ -17,9 +17,9 @@
   "author": "bornkiller <hjj491229492@hotmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/bornkiller/babel-plugin-annotate-ng/issues"
+    "url": "https://github.com/bornkiller/babel-plugin-annotate-ng/issues"
   },
-  "homepage": "https://gitlab.com/bornkiller/babel-plugin-annotate-ng#README",
+  "homepage": "https://github.com/bornkiller/babel-plugin-annotate-ng#README",
   "devDependencies": {
     "babel-core": "^6.25.0",
     "eslint": "^4.0.0",
