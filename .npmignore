@@ -42,6 +42,4 @@ jspm_packages
 .babelrc
 .eslintignore
 .eslintrc.yml
-rollup.*.js
-/test/*.bundle.js
 .idea
