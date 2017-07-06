@@ -13,8 +13,8 @@ const babelOptions = {
   babelrc: false
 };
 
-describe('babel-plugin-annotate-ng Class Declare', function () {
-  it('ExportNamedDeclare', function () {
+describe('babel-plugin-annotate-ng Class', function () {
+  it('ExportNamedDeclaration', function () {
     const fixture = path.resolve(__dirname, '../__fixture__/Class/redux.controller.js');
     const { code } = babel.transformFileSync(fixture, babelOptions);
 
@@ -29,15 +29,15 @@ describe('babel-plugin-annotate-ng Class Declare', function () {
   });
 });
 
-describe('babel-plugin-annotate-ng Inline Class Declare', function () {
-  it('ExportNamedDeclare', function () {
+describe('babel-plugin-annotate-ng Inline Class', function () {
+  it('ExportNamedDeclaration', function () {
     const fixture = path.resolve(__dirname, '../__fixture__/Class/redux-inline.controller.js');
     const { code } = babel.transformFileSync(fixture, babelOptions);
 
     expect(code).toMatchSnapshot();
   });
 
-  it('ExportDefaultDeclare', function () {
+  it('ExportDefaultDeclaration', function () {
     const fixture = path.resolve(__dirname, '../__fixture__/Class/monitor-inline.controller.js');
     const { code } = babel.transformFileSync(fixture, babelOptions);
 

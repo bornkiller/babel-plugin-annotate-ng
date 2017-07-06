@@ -5,7 +5,6 @@
 'use strict';
 
 const injector = require('./injector');
-const DeclarationVisitor = require('./visitor');
 const radar = require('./radar');
 
 module.exports = function ({ types }) {
@@ -13,24 +12,25 @@ module.exports = function ({ types }) {
     visitor: {
       'ExportNamedDeclaration|ExportDefaultDeclaration': {
         enter(path) {
-          const comments = radar.inspectExportAnnotationComment(path);
+          const ExportsComments = radar.inspectExportAnnotationComment(path);
+          const declaration = path.get('declaration');
 
           // skip when not export Function or Class
-          if (types.isFunctionDeclaration(path.node.declaration)) {
+          if (types.isFunctionDeclaration(declaration)) {
+            const comments = [...ExportsComments, ...radar.inspectFunctionAnnotationComment(declaration)];
+
             if (radar.determineAnnotationComment(comments)) {
-              injector.injectFunctionDeclare(path.get('declaration'), types);
-            } else {
-              path.traverse(DeclarationVisitor, { types: types });
+              injector.injectFunctionDeclaration(declaration);
             }
 
             return;
           }
 
-          if (types.isClassDeclaration(path.node.declaration)) {
+          if (types.isClassDeclaration(declaration)) {
+            const comments = [...ExportsComments, ...radar.inspectClassAnnotationComment(declaration)]
+
             if (radar.determineAnnotationComment(comments)) {
-              injector.injectClassDeclare(path.get('declaration'), types);
-            } else {
-              path.traverse(DeclarationVisitor, { types: types });
+              injector.injectClassDeclaration(declaration);
             }
           }
         }

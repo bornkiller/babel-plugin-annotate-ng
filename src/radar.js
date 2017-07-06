@@ -15,7 +15,7 @@ module.exports = {
 /**
  * @description - collect ExportNamedDeclaration / ExportDefaultDeclaration comments
  *
- * @param {Object} path
+ * @param {Object} path - ExportDefaultDeclaration or ExportNamedDeclaration
  *
  * @return {*}
  */
@@ -24,9 +24,9 @@ function inspectExportAnnotationComment(path) {
 }
 
 /**
- * @description - collect Function declaration comments
+ * @description - inspect Function declaration comments
  *
- * @param {Object} path
+ * @param {Object} path - FunctionDeclaration
  *
  * @return {*}
  */
@@ -35,9 +35,9 @@ function inspectFunctionAnnotationComment(path) {
 }
 
 /**
- * @description - determine Class declare @ngInject comment
+ * @description - inspect Class declaration comment
  *
- * @param {Object} path - ExportNamedDeclaration / ExportDefaultDeclaration
+ * @param {Object} path - ClassDeclaration
  *
  * @return {*}
  */
