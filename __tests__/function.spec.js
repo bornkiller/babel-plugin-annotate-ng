@@ -6,7 +6,6 @@
 const path = require('path');
 const babel = require('babel-core');
 const annotate = require('../src');
-// fixture
 const babelOptions = {
   presets: [],
   plugins: [annotate],
