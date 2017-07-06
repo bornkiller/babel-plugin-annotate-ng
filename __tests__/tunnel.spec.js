@@ -14,15 +14,22 @@ const babelOptions = {
 };
 
 describe('babel-plugin-annotate-ng Tunnel', function () {
-  it('Function Declaration', function () {
+  it('FunctionDeclaration', function () {
     const fixture = path.resolve(__dirname, '../__fixture__/Tunnel/find-fruit.js');
     const { code } = babel.transformFileSync(fixture, babelOptions);
 
     expect(code).toMatchSnapshot();
   });
 
-  it('Class Declaration', function () {
+  it('ClassDeclaration', function () {
     const fixture = path.resolve(__dirname, '../__fixture__/Tunnel/polaris.js');
+    const { code } = babel.transformFileSync(fixture, babelOptions);
+
+    expect(code).toMatchSnapshot();
+  });
+
+  it('VariableDeclaration', function () {
+    const fixture = path.resolve(__dirname, '../__fixture__/Tunnel/warrior.js');
     const { code } = babel.transformFileSync(fixture, babelOptions);
 
     expect(code).toMatchSnapshot();
